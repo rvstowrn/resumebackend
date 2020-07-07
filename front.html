@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>front</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+		form{
+			width: 300px;
+			height: 450px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			box-shadow: 0 0 5px black;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			align-items: center;
+		}
+		form > *{
+			width: 250px;
+		}
+	</style>
+</head>
+<body>
+	<form method="POST" enctype="multipart/form-data" action="http://localhost:3333/storeresume">
+		<input type="file" name="image">
+		<input type="text" name="about" placeholder="about">
+		<input type="text" name="skill" placeholder="skill">
+		<input type="text" name="skill" placeholder="skill">
+		<input type="text" name="experience" placeholder="experience">
+		<input type="text" name="experience" placeholder="experience">
+		<input type="text" name="college" placeholder="college">
+		<input type="text" name="twelth" placeholder="twelth">
+		<input type="text" name="tenth" placeholder="tenth">
+		<input type="text" name="links" placeholder="github">
+		<input type="text" name="links" placeholder="facebook">
+		<input type="text" name="links" placeholder="linkedin">
+		<input type="submit">
+	</form>
+</body>
+</html>
