@@ -104,40 +104,30 @@ app.post('/storeresume',async (req, res, next) => {
   let imgsrc = uuidv4();
   fs.writeFileSync(`${imgsrc}.jpg`, buff);
   
-  let { about,
-        skillname,skilldesc,
-        expname,expdesc,
-        tenthname,tenthaddr,tenthmarks,
-        twelthname,twelthaddr,twelthmarks,
-        collegename,collegeaddr,collegemarks,
-        links } = req.body;
+  let { 
+    about,
+    skills,
+    exps,
+    twelth,
+    tenth,
+    college,
+    templateid,
+    links } = req.body;
 
   let resume = new Resume(
     { 
-      details:         about,
+      about:      about,
+      skills:     skills,
+      experience: exps,
       
-      allskills:       skillname,
-      skilldetails:    skilldesc,  
-      
-      experience:      expname,
-      expdetails:      expdesc,
-      
-      college:         collegename,
-      collegeaddress:  collegeaddr,
-      collegepercent:  collegemarks,
-      
-      twelth:          twelthname,
-      twelthaddress:   twelthaddr,
-      twelthpercent:   twelthmarks,
-      
-      tenth:           tenthname,
-      tenthaddress:    tenthaddr,
-      tenthpercent:    tenthmarks,
-
-      anchors: links,
-      imgsrc:imgsrc,
-      user:authstatus["decoded"]["id"] 
-
+      twelth:     twelth,
+      tenth:      tenth,
+      college:    college,
+  
+      anchors:    links,
+      imgsrc:     imgsrc,
+      user:       authstatus["decoded"]["id"], 
+      name:       authstatus["decoded"]["name"] 
     });
 
     // resume future features 
@@ -155,7 +145,7 @@ app.get('/:id', async (req, res)=> {
   let id = req.params.id;
   let resume = await Resume.findOne({ "user":id });
   if(resume)
-    res.render('template1', {data:resume});
+    res.render(`template${templateid}`, {data:resume});
   else
     res.send('404 bro');
 });
