@@ -92,52 +92,54 @@ app.post('/storeuser',async (req, res) => {
 // Store Web Portfolio Data
 app.post('/storeresume',async (req, res, next) => {
   
-  // Future : Check if sending uri and recieving with multer works for images
+  console.log(req.body);
+  res.json({"msg":"api touched"});
+  // // Future : Check if sending uri and recieving with multer works for images
 
-  // Check Auth
-  const token = req.header["x-auth-token"];
-  const authstatus = authHandler(token); 
-  if(authstatus["msg"]!=='success')
-    res.json({"msg":authstatus["msg"]})
+  // // Check Auth
+  // const token = req.header["x-auth-token"];
+  // const authstatus = authHandler(token); 
+  // if(authstatus["msg"]!=='success')
+  //   res.json({"msg":authstatus["msg"]})
 
-  let buff = Buffer.from(req.body.image, 'base64');
-  let imgsrc = uuidv4();
-  fs.writeFileSync(`${imgsrc}.jpg`, buff);
+  // let buff = Buffer.from(req.body.image, 'base64');
+  // let imgsrc = uuidv4();
+  // fs.writeFileSync(`${imgsrc}.jpg`, buff);
   
-  let { 
-    about,
-    skills,
-    exps,
-    twelth,
-    tenth,
-    college,
-    templateid,
-    links } = req.body;
+  // let { 
+  //   about,
+  //   skills,
+  //   exps,
+  //   twelth,
+  //   tenth,
+  //   college,
+  //   templateid,
+  //   links } = req.body;
 
-  let resume = new Resume(
-    { 
-      about:      about,
-      skills:     skills,
-      experience: exps,
+  // let resume = new Resume(
+  //   { 
+  //     about:      about,
+  //     skills:     skills,
+  //     experience: exps,
       
-      twelth:     twelth,
-      tenth:      tenth,
-      college:    college,
+  //     twelth:     twelth,
+  //     tenth:      tenth,
+  //     college:    college,
   
-      anchors:    links,
-      imgsrc:     imgsrc,
-      user:       authstatus["decoded"]["id"], 
-      name:       authstatus["decoded"]["name"] 
-    });
+  //     anchors:    links,
+  //     imgsrc:     imgsrc,
+  //     user:       authstatus["decoded"]["id"], 
+  //     name:       authstatus["decoded"]["name"] 
+  //   });
 
-    // resume future features 
-    // siteparam:
-    // templateid:template,
+  //   // resume future features 
+  //   // siteparam:
+  //   // templateid:template,
       
     
-    resume.save().then(()=>{
-      res.json({"msg":'success'});
-    });
+  //   resume.save().then(()=>{
+  //     res.json({"msg":'success'});
+  //   });
 });
 
 
