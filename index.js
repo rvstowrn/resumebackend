@@ -96,56 +96,64 @@ app.post('/storeresume',async (req, res, next) => {
   res.json({"msg":"api touched"});
   // // Future : Check if sending uri and recieving with multer works for images
 
-  // // Check Auth
-  // const token = req.header["x-auth-token"];
-  // const authstatus = authHandler(token); 
-  // if(authstatus["msg"]!=='success')
-  //   res.json({"msg":authstatus["msg"]})
+  // Check Auth
+  const token = req.header["x-auth-token"];
+  const authstatus = authHandler(token); 
+  if(authstatus["msg"]!=='success')
+    res.json({"msg":authstatus["msg"]})
 
-  // let buff = Buffer.from(req.body.image, 'base64');
-  // let imgsrc = uuidv4();
-  // fs.writeFileSync(`${imgsrc}.jpg`, buff);
+  let buff = Buffer.from(req.body.image, 'base64');
+  let imgsrc = uuidv4();
+  fs.writeFileSync(`${imgsrc}.jpg`, buff);
   
-  // let { 
-  //   about,
-  //   skills,
-  //   exps,
-  //   twelth,
-  //   tenth,
-  //   college,
-  //   templateid,
-  //   links } = req.body;
+  let { 
+    about,
+    skills,
+    exps,
+    twelth,
+    tenth,
+    college,
+    templateid,
+    links } = req.body;
 
-  // let resume = new Resume(
-  //   { 
-  //     about:      about,
-  //     skills:     skills,
-  //     experience: exps,
+  let resume = new Resume(
+    { 
+      imgsrc:     imgsrc,
+      about:      about,
+      skills:     skills,
+      experience: exps,
       
-  //     twelth:     twelth,
-  //     tenth:      tenth,
-  //     college:    college,
+      college:    college,
+      twelth:     twelth,
+      tenth:      tenth,
   
-  //     anchors:    links,
-  //     imgsrc:     imgsrc,
-  //     user:       authstatus["decoded"]["id"], 
-  //     name:       authstatus["decoded"]["name"] 
-  //   });
+      links:      links,
+      imgsrc:     imgsrc,
+      user:       authstatus["decoded"]["id"], 
+      name:       authstatus["decoded"]["name"] 
+    });
 
-  //   // resume future features 
-  //   // siteparam:
-  //   // templateid:template,
+    // resume future features 
+    // siteparam:
+    // templateid:template,
       
     
-  //   resume.save().then(()=>{
-  //     res.json({"msg":'success'});
-  //   });
+    resume.save().then(()=>{
+      res.json({"msg":'success','sitelink':`https://portfolio-v0.herokuapp.com/${resume.user}`});
+    });
 });
 
 
 app.get('/:id', async (req, res)=> {
   let id = req.params.id;
-  let resume = await Resume.findOne({ "user":id });
+  let templateid = 1;
+  let resume = {
+      imgsrc:     "scooty",
+      about:      "about",
+      skills:     {"c":"good","c++":"great"},
+      experience: {"c":"good","c++":"great"},
+  };
+  // await Resume.findOne({ "user":id });
   if(resume)
     res.render(`template${templateid}`, {data:resume});
   else

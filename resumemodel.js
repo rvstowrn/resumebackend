@@ -12,27 +12,27 @@ const resumeSchema = new Schema(
       required: true
     },
     skills: {
-      type: Array,
+      type: Object,
       required: true
     },
     experience: {
-      type: Array,
+      type: Object,
       required: true
     },
     college: {
-      type: String,
+      type: Object,
       required: true
     },
     twelth: {
-      type: String,
+      type: Object,
       required: true
     },
     tenth: {
-      type: String,
+      type: Object,
       required: true
     },
     links: {
-      type: Array,
+      type: Object,
       required: true
     },
   },

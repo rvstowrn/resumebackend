@@ -1,11 +1,177 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>bro</title>
+	<title>Portfolio 0</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		.hero{
+			display: flex;
+			height: 225px;
+			width: 80%;
+			margin: auto;
+			margin-top: 25px;
+			font-family: cursive;
+			box-shadow: 0 0 4px rgba(0,0,0,0.6);
+			border-radius: 5px;
+		}
+		.hero> div{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			padding: 10px; 
+		}
+		.headers{
+			margin-top: 100px;
+			margin-bottom: 50px; 
+			text-align: center;
+		}
+		.skilldiv{
+			margin: auto;
+			margin-bottom: 15px;
+			width: 80%;
+			padding: 3px;
+			box-shadow: 0 0 3px rgba(0,0,0,0.7);
+
+		}
+
+		.experience > div{
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+
+		.expcard{
+			width: 300px;
+			margin: 15px;
+			padding: 3px;
+			box-shadow: 0 0 3px rgba(0,0,0,0.7);
+		}
+
+		.education > div{
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			margin-bottom: 150px;
+		}
+
+		.footer{
+			background-color: lightgrey;
+			height: 100px;
+			padding-left: 10%;
+		}
+
+		@media only screen and (max-width: 740px) {
+		  .hero {
+		    height: unset;
+		    flex-direction: column-reverse;
+		  }
+		}
+
+
+
+
+	</style>
+
 </head>
 <body>
+	<h1 class="headers"> PORTFOLIO</h1>
+	<div class="hero">
+		<div>
+		<h2>About Me...</h2>
+		<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo voluptatibus dolor hic exercitationem consequatur laborum enim accusamus corrupti eos, excepturi quibusdam repellat porro a dolorem, est magni numquam dolorum sunt.</h3>
+		</div>
+		<img src="https://rvstowrn.github.io/MyPortfolio/img/scooty.jpg" width="100%">		
+	</div>
 
-	<% data.user %=>
+	<div class="skills">
+		<h2 class="headers">Skills</h2>
+		
+		<div class="skilldiv">
+			<h3>Skill Name</h3>
+			<p>Description</p>
+		</div>
+		
+		<div class="skilldiv">
+			<h3>Skill Name</h3>
+			<p>Description</p>
+		</div>
+		
+		<div class="skilldiv">
+			<h3>Skill Name</h3>
+			<p>Description</p>
+		</div>
+		
+		<div class="skilldiv">
+			<h3>Skill Name</h3>
+			<p>Description</p>
+		</div>
+
+	</div>
+
+	<div class="experience">
+		<h2 class="headers">Experience</h2>
+
+		<div>
+			<div class="expcard">
+				<h3>Company Name</h3>
+				<p>Nature of Work : Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos est cum facere necessitatibus adipisci error ab accusantium ut! Repellendus autem numquam distinctio nam ipsam, perferendis ratione consequatur explicabo pariatur veniam?</p>
+			</div>
+			
+			<div class="expcard">
+				<h3>Company Name</h3>
+				<p>Nature of Work : Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos est cum facere necessitatibus adipisci error ab accusantium ut! Repellendus autem numquam distinctio nam ipsam, perferendis ratione consequatur explicabo pariatur veniam?</p>
+			</div>
+			
+			<div class="expcard">
+				<h3>Company Name</h3>
+				<p>Nature of Work : Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos est cum facere necessitatibus adipisci error ab accusantium ut! Repellendus autem numquam distinctio nam ipsam, perferendis ratione consequatur explicabo pariatur veniam?</p>
+			</div>		
+		</div>
+
+		
+	</div>
+	
+	<div class="education">
+		<h2 class="headers">Education</h2>
+		
+		<div>
+			<div class="skilldiv">
+				<h3>College</h3>
+				<p>College Name</p>
+				<p>College Degree</p>
+				<p>College Marks</p>
+				<p>College Year</p>
+			</div>
+		
+			<div class="skilldiv">
+				<h3>Twelth</h3>
+				<p>Twelth Name</p>
+				<p>Twelth Boards</p>
+				<p>Twelth Marks</p>
+				<p>Twelth Year</p>
+			</div>
+		
+			<div class="skilldiv">
+				<h3>Tenth</h3>
+				<p>Tenth Name</p>
+				<p>Tenth Boards</p>
+				<p>Tenth Marks</p>
+				<p>Tenth Year</p>
+			</div>
+		</div>
+	
+	</div>
+
+	<div class="footer">
+		<h2>Contact Me On ..</h2>
+		<p>github</p>		
+		<p>facebook</p>		
+		<p>linkedin</p>		
+	</div>
 
 </body>
 </html>
