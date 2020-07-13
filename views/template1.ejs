@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Portfolio 0</title>
+	<title><%= data.name %> Portfolio</title>
 	<style type="text/css">
 		*{
 			margin: 0;
@@ -18,7 +18,13 @@
 			box-shadow: 0 0 4px rgba(0,0,0,0.6);
 			border-radius: 5px;
 		}
+		.hero > img{
+			height: 225px;
+			width: 225px;
+			align-self: flex-end;
+		}
 		.hero> div{
+			width: 100%;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
@@ -33,7 +39,7 @@
 			margin: auto;
 			margin-bottom: 15px;
 			width: 80%;
-			padding: 3px;
+			padding: 10px;
 			box-shadow: 0 0 3px rgba(0,0,0,0.7);
 
 		}
@@ -47,7 +53,7 @@
 		.expcard{
 			width: 300px;
 			margin: 15px;
-			padding: 3px;
+			padding: 10px;
 			box-shadow: 0 0 3px rgba(0,0,0,0.7);
 		}
 
@@ -69,6 +75,10 @@
 		    height: unset;
 		    flex-direction: column-reverse;
 		  }
+		  .hero > img{
+				height: unset;
+				width: 100%;
+			}
 		}
 
 
@@ -82,54 +92,33 @@
 	<div class="hero">
 		<div>
 		<h2>About Me...</h2>
-		<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo voluptatibus dolor hic exercitationem consequatur laborum enim accusamus corrupti eos, excepturi quibusdam repellat porro a dolorem, est magni numquam dolorum sunt.</h3>
+		<h3><%= data.about %></h3>
 		</div>
-		<img src="https://rvstowrn.github.io/MyPortfolio/img/scooty.jpg" width="100%">		
+		<img src="static/scooty.jpg">		
 	</div>
 
 	<div class="skills">
 		<h2 class="headers">Skills</h2>
-		
-		<div class="skilldiv">
-			<h3>Skill Name</h3>
-			<p>Description</p>
-		</div>
-		
-		<div class="skilldiv">
-			<h3>Skill Name</h3>
-			<p>Description</p>
-		</div>
-		
-		<div class="skilldiv">
-			<h3>Skill Name</h3>
-			<p>Description</p>
-		</div>
-		
-		<div class="skilldiv">
-			<h3>Skill Name</h3>
-			<p>Description</p>
-		</div>
 
+		<% Object.keys(data.skills).forEach(function(key){ %>
+		  <div class="skilldiv">
+				<h3><%- key %></h3>
+				<p><%- data.skills[key] %></p>
+			</div>
+		<% }) %>
+		
 	</div>
 
 	<div class="experience">
 		<h2 class="headers">Experience</h2>
 
 		<div>
-			<div class="expcard">
-				<h3>Company Name</h3>
-				<p>Nature of Work : Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos est cum facere necessitatibus adipisci error ab accusantium ut! Repellendus autem numquam distinctio nam ipsam, perferendis ratione consequatur explicabo pariatur veniam?</p>
-			</div>
-			
-			<div class="expcard">
-				<h3>Company Name</h3>
-				<p>Nature of Work : Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos est cum facere necessitatibus adipisci error ab accusantium ut! Repellendus autem numquam distinctio nam ipsam, perferendis ratione consequatur explicabo pariatur veniam?</p>
-			</div>
-			
-			<div class="expcard">
-				<h3>Company Name</h3>
-				<p>Nature of Work : Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos est cum facere necessitatibus adipisci error ab accusantium ut! Repellendus autem numquam distinctio nam ipsam, perferendis ratione consequatur explicabo pariatur veniam?</p>
-			</div>		
+			<% Object.keys(data.experience).forEach(function(key){ %>
+				<div class="expcard">
+					<h3><%- key %></h3>
+					<p><%- data.experience[key] %></p>
+				</div>
+			<% }) %>			
 		</div>
 
 		
@@ -141,26 +130,26 @@
 		<div>
 			<div class="skilldiv">
 				<h3>College</h3>
-				<p>College Name</p>
-				<p>College Degree</p>
-				<p>College Marks</p>
-				<p>College Year</p>
+				<p><%= data.college.name %></p>
+				<p><%= data.college.degree %></p>
+				<p><%= data.college.year %></p>
+				<p><%= data.college.marks %></p>
 			</div>
 		
 			<div class="skilldiv">
 				<h3>Twelth</h3>
-				<p>Twelth Name</p>
-				<p>Twelth Boards</p>
-				<p>Twelth Marks</p>
-				<p>Twelth Year</p>
+				<p><%= data.twelth.name %></p>
+				<p><%= data.twelth.boards %></p>
+				<p><%= data.twelth.year %></p>
+				<p><%= data.twelth.marks %>Year</p>
 			</div>
 		
 			<div class="skilldiv">
 				<h3>Tenth</h3>
-				<p>Tenth Name</p>
-				<p>Tenth Boards</p>
-				<p>Tenth Marks</p>
-				<p>Tenth Year</p>
+				<p><%= data.tenth.name %></p>
+				<p><%= data.tenth.boards %></p>
+				<p><%= data.tenth.year %></p>
+				<p><%= data.tenth.marks %>Year</p>
 			</div>
 		</div>
 	
@@ -168,9 +157,9 @@
 
 	<div class="footer">
 		<h2>Contact Me On ..</h2>
-		<p>github</p>		
-		<p>facebook</p>		
-		<p>linkedin</p>		
+		<a href="<%- data.links.github %>">github</a><br>		
+		<a href="<%- data.links.facebook %>">facebook</a><br>		
+		<a href="<%- data.links.linkedin %>">linkedin</a><br>		
 	</div>
 
 </body>

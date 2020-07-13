@@ -14,8 +14,10 @@ const resume         = require('./resumemodel.js');
 const user           = require('./usermodel.js');
 const authHandler    = require('./handleAuth.js');
 const db             = "mongodb+srv://rishabh:cse300531@cluster0-amnhk.mongodb.net/resumestorage?retryWrites=true&w=majority";
+
 app.use(bodyParser.urlencoded({limit:"50mb", extended: true }))
 app.use(bodyParser.json({limit:"50mb"}));
+app.use('/static', express.static(path.join(__dirname, 'uploads')))
 app.set('view engine', 'ejs');
 
 
@@ -104,7 +106,7 @@ app.post('/storeresume',async (req, res, next) => {
 
   let buff = Buffer.from(req.body.image, 'base64');
   let imgsrc = uuidv4();
-  fs.writeFileSync(`${imgsrc}.jpg`, buff);
+  fs.writeFileSync(`uploads/${imgsrc}.jpg`, buff);
   
   let { 
     about,
@@ -128,7 +130,6 @@ app.post('/storeresume',async (req, res, next) => {
       tenth:      tenth,
   
       links:      links,
-      imgsrc:     imgsrc,
       user:       authstatus["decoded"]["id"], 
       name:       authstatus["decoded"]["name"] 
     });
@@ -148,10 +149,18 @@ app.get('/:id', async (req, res)=> {
   let id = req.params.id;
   let templateid = 1;
   let resume = {
-      imgsrc:     "scooty",
-      about:      "about",
-      skills:     {"c":"good","c++":"great"},
-      experience: {"c":"good","c++":"great"},
+      imgsrc:      "scooty",
+      about:       "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+      skills:      {"c":"beginner","c++":"average","java":"average"},
+      experience:  {"intern":"gmetri react","freelance":"srs commodities flutter"},
+      
+      college:     {"name":"srmist","year":"2021","degree":"btech cse","marks":"85.07"},
+      twelth:      {"name":"dav","year":"2017","board":"cbse","marks":"78.4"},
+      tenth:       {"name":"don bosco","year":"2015","board":"icse","marks":"87.83"},
+  
+      links:       {"github":"https://google.com","facebook":"https://google.com","linkedin":"https://google.com"},
+      user:        "rvstowrn", 
+      name:        "Rishabh Verma"
   };
   // await Resume.findOne({ "user":id });
   if(resume)
