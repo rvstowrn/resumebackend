@@ -162,7 +162,7 @@ app.get('/:id', async (req, res)=> {
       user:        "rvstowrn", 
       name:        "Rishabh Verma"
   };
-  // await Resume.findOne({ "user":id });
+  // let resume = await Resume.findOne({ "user":id });
   if(resume)
     res.render(`template${templateid}`, {data:resume});
   else
