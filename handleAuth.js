@@ -13,7 +13,7 @@ module.exports = function(token) {
     if (decoded.user.type !== "customer") {
       return {"msg":"Token is not valid"};
     }
-    return {"msg":"success","token":token};
+    return {"msg":"success","decoded":decoded};
   } catch (err) {
     return {"msg":"Error decoding token"};
   }

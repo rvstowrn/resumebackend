@@ -94,7 +94,7 @@
 		<h2>About Me...</h2>
 		<h3><%= data.about %></h3>
 		</div>
-		<img src="static/scooty.jpg">		
+		<img src="static/<%= data.imgsrc %>.jpg">		
 	</div>
 
 	<div class="skills">
@@ -131,24 +131,21 @@
 			<div class="skilldiv">
 				<h3>College</h3>
 				<p><%= data.college.name %></p>
-				<p><%= data.college.degree %></p>
-				<p><%= data.college.year %></p>
+				<p><%= data.college.address %></p>
 				<p><%= data.college.marks %></p>
 			</div>
 		
 			<div class="skilldiv">
 				<h3>Twelth</h3>
 				<p><%= data.twelth.name %></p>
-				<p><%= data.twelth.boards %></p>
-				<p><%= data.twelth.year %></p>
+				<p><%= data.twelth.address %></p>
 				<p><%= data.twelth.marks %>Year</p>
 			</div>
 		
 			<div class="skilldiv">
 				<h3>Tenth</h3>
 				<p><%= data.tenth.name %></p>
-				<p><%= data.tenth.boards %></p>
-				<p><%= data.tenth.year %></p>
+				<p><%= data.tenth.address %></p>
 				<p><%= data.tenth.marks %>Year</p>
 			</div>
 		</div>

@@ -35,6 +35,14 @@ const resumeSchema = new Schema(
       type: Object,
       required: true
     },
+    user: {
+      type: String,
+      required: true
+    },
+    name: {
+      type: String,
+      required: true
+    },
   },
   { strict: true }
 );

@@ -92,17 +92,22 @@ app.post('/storeuser',async (req, res) => {
 
 
 // Store Web Portfolio Data
-app.post('/storeresume',async (req, res, next) => {
+app.post('/storeresume',async (req, res) => {
   
-  console.log(req.body);
-  res.json({"msg":"api touched"});
   // // Future : Check if sending uri and recieving with multer works for images
 
   // Check Auth
-  const token = req.header["x-auth-token"];
+  const token = req.body["x-auth-token"];
   const authstatus = authHandler(token); 
   if(authstatus["msg"]!=='success')
     res.json({"msg":authstatus["msg"]})
+
+  let oldResume = await Resume.findOne({ user:authstatus["decoded"]["user"]["id"] });
+  if (oldResume) {
+    return res
+      .status(200)
+      .json({ "msg": "Resume for this user already exists" });
+  }
 
   let buff = Buffer.from(req.body.image, 'base64');
   let imgsrc = uuidv4();
@@ -111,7 +116,7 @@ app.post('/storeresume',async (req, res, next) => {
   let { 
     about,
     skills,
-    exps,
+    experience,
     twelth,
     tenth,
     college,
@@ -123,15 +128,15 @@ app.post('/storeresume',async (req, res, next) => {
       imgsrc:     imgsrc,
       about:      about,
       skills:     skills,
-      experience: exps,
+      experience: experience,
       
       college:    college,
       twelth:     twelth,
       tenth:      tenth,
   
       links:      links,
-      user:       authstatus["decoded"]["id"], 
-      name:       authstatus["decoded"]["name"] 
+      user:       authstatus["decoded"]["user"]["id"], 
+      name:       authstatus["decoded"]["user"]["name"] 
     });
 
     // resume future features 
@@ -148,21 +153,7 @@ app.post('/storeresume',async (req, res, next) => {
 app.get('/:id', async (req, res)=> {
   let id = req.params.id;
   let templateid = 1;
-  let resume = {
-      imgsrc:      "scooty",
-      about:       "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-      skills:      {"c":"beginner","c++":"average","java":"average"},
-      experience:  {"intern":"gmetri react","freelance":"srs commodities flutter"},
-      
-      college:     {"name":"srmist","year":"2021","degree":"btech cse","marks":"85.07"},
-      twelth:      {"name":"dav","year":"2017","board":"cbse","marks":"78.4"},
-      tenth:       {"name":"don bosco","year":"2015","board":"icse","marks":"87.83"},
-  
-      links:       {"github":"https://google.com","facebook":"https://google.com","linkedin":"https://google.com"},
-      user:        "rvstowrn", 
-      name:        "Rishabh Verma"
-  };
-  // let resume = await Resume.findOne({ "user":id });
+  let resume = await Resume.findOne({ "user":id });
   if(resume)
     res.render(`template${templateid}`, {data:resume});
   else
