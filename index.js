@@ -152,21 +152,20 @@ app.post('/storeresume',async (req, res) => {
 
 
 app.get('/:id', async (req, res)=> {
+
   let id = req.params.id;
   let templateid = 1;  
 
   let resume = await Resume.findOne({ "user":id });
-  if(resume)
+  if(resume){
     let buff = Buffer.from(resume.imgsrc, 'base64');
     let imagename = uuidv4();
     Object.assign(resume, {imagename});
     fs.writeFileSync(`uploads/${imagename}.jpg`, buff);
-
     res.render(`template${templateid}`, {data:resume});
+  }
   else
     res.send('404 bro');
-
-  
 
 });
 
