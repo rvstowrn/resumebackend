@@ -109,11 +109,12 @@ app.post('/storeresume',async (req, res) => {
       .json({ "msg": "Resume for this user already exists" });
   }
 
-  let buff = Buffer.from(req.body.image, 'base64');
-  let imgsrc = uuidv4();
-  fs.writeFileSync(`uploads/${imgsrc}.jpg`, buff);
+  // let buff = Buffer.from(req.body.image, 'base64');
+  // let imgsrc = uuidv4();
+  // fs.writeFileSync(`uploads/${imgsrc}.jpg`, buff);
   
   let { 
+    image,
     about,
     skills,
     experience,
@@ -125,7 +126,7 @@ app.post('/storeresume',async (req, res) => {
 
   let resume = new Resume(
     { 
-      imgsrc:     imgsrc,
+      imgsrc:     image,
       about:      about,
       skills:     skills,
       experience: experience,
@@ -152,12 +153,21 @@ app.post('/storeresume',async (req, res) => {
 
 app.get('/:id', async (req, res)=> {
   let id = req.params.id;
-  let templateid = 1;
+  let templateid = 1;  
+
   let resume = await Resume.findOne({ "user":id });
   if(resume)
+    let buff = Buffer.from(resume.imgsrc, 'base64');
+    let imagename = uuidv4();
+    Object.assign(resume, {imagename});
+    fs.writeFileSync(`uploads/${imagename}.jpg`, buff);
+
     res.render(`template${templateid}`, {data:resume});
   else
     res.send('404 bro');
+
+  
+
 });
 
 app.listen(process.env.PORT || 3333);
