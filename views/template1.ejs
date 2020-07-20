@@ -9,12 +9,19 @@
 			padding: 0;
 			box-sizing: border-box;
 		}
+
+		body{
+			background-color: #121639;
+			color: white;
+		}
+
 		.hero{
 			display: flex;
 			height: 225px;
 			width: 80%;
 			margin: auto;
 			margin-top: 25px;
+			background-color: #121645;
 			font-family: cursive;
 			box-shadow: 0 0 4px rgba(0,0,0,0.6);
 			border-radius: 5px;
@@ -36,14 +43,30 @@
 			margin-bottom: 50px; 
 			text-align: center;
 		}
+		.skills{
+			text-align: center;
+		}
 		.skilldiv{
-			margin: auto;
-			margin-bottom: 15px;
-			width: 80%;
+			width: 300px;
+			margin: 15px;
+			display: inline-block;
 			padding: 10px;
 			box-shadow: 0 0 3px rgba(0,0,0,0.7);
-
 		}
+
+		.skilldiv:nth-of-type(4n) {
+		  background: orange;
+		}
+		.skilldiv:nth-of-type(4n+1) {
+		  background: green;
+		}
+		.skilldiv:nth-of-type(4n+2) {
+		  background: red;
+		}
+		.skilldiv:nth-of-type(4n+3) {
+		  background: purple;
+		}
+
 
 		.experience > div{
 			display: flex;
@@ -66,7 +89,8 @@
 		}
 
 		.footer{
-			background-color: lightgrey;
+			padding-top: 5px;
+			background-color: #121629;
 			height: 100px;
 			padding-left: 10%;
 		}
@@ -82,10 +106,8 @@
 			}
 		}
 
-
-
-
 	</style>
+
 
 </head>
 <body>

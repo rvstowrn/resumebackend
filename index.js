@@ -58,7 +58,8 @@ app.get('/', function (req, res) {
 
 // Create Users
 app.post('/storeuser',async (req, res) => {
-  let { name,username,password } = req.body;
+  
+  let { name, username, password } = req.body;
 
   let user = new User({ name,username,password });
   let oldUser = await User.findOne({ username });
