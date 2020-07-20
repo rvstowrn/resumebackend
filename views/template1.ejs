@@ -117,8 +117,10 @@
 			padding-left: 10%;
 		}
 
-		.footer > a{
-			margin-right: 25px;
+		.footer > div{
+			display: flex;
+			justify-content: space-around;
+			flex-wrap: wrap;
 		}
 
 		@media only screen and (max-width: 740px) {
@@ -130,6 +132,10 @@
 				height: unset;
 				width: 100%;
 			}
+			.skills{
+				padding-left: 3px;
+				padding-right: 3px;
+			}
 		}
 
 	</style>
@@ -137,7 +143,7 @@
 
 </head>
 <body>
-	<h1 class="headers"> <%= data.name %>  PORTFOLIO </h1>
+	<h1 class="headers"> <%= data.name %>  Portfolio </h1>
 	<div class="hero">
 		<div>
 		<h2>About Me...</h2>
@@ -204,20 +210,22 @@
 	<div class="footer">
 		<h2>Contact Me On ..</h2>
 		
-		<a href="<%- data.links.github %>">
-		  <i class="fa fa-github"></i>
-		  github
-	  </a>		
-		
-		<a href="<%- data.links.facebook %>">
-		  <i class="fa fa-facebook"></i>
-		  facebook
-	  </a>		
-		
-		<a href="<%- data.links.linkedin %>">
-		  <i class="fa fa-linkedin"></i>
-		  linkedin
-	  </a>		
+		<div>
+			<a href="<%- data.links.github %>">
+			  <i class="fa fa-github"></i>
+			  github
+		  </a>		
+			
+			<a href="<%- data.links.facebook %>">
+			  <i class="fa fa-facebook"></i>
+			  facebook
+		  </a>		
+			
+			<a href="<%- data.links.linkedin %>">
+			  <i class="fa fa-linkedin"></i>
+			  linkedin
+		  </a>
+	  </div>		
 				
 	</div>
 
