@@ -54,19 +54,35 @@
 			box-shadow: 0 0 3px rgba(0,0,0,0.7);
 		}
 
-		.skilldiv:nth-of-type(4n) {
-		  background: orange;
+		.skilldiv:nth-of-type(3n) {
+		  background-image: linear-gradient(to top right, rgba(0,0,255,.3),rgba(0,0,255,1),rgba(0,0,255,.3));
 		}
-		.skilldiv:nth-of-type(4n+1) {
-		  background: green;
+		.skilldiv:nth-of-type(3n+1) {
+		  background-image: linear-gradient(to top right, rgba(0,255,0,.3),rgba(0,255,0,1),rgba(0,255,0,.3));
 		}
-		.skilldiv:nth-of-type(4n+2) {
-		  background: red;
-		}
-		.skilldiv:nth-of-type(4n+3) {
-		  background: purple;
+		.skilldiv:nth-of-type(3n+2) {
+		  background-image: linear-gradient(to top right, rgba(255,0,0,.3),rgba(255,0,0,1),rgba(255,0,0,.3));
 		}
 
+		.edcard{
+			width: 300px;
+			margin: 15px;
+			font-size: 20px;
+			display: inline-block;
+			padding: 30px 15px 30px 15px;
+			box-shadow: 0 0 3px rgba(0,0,0,0.7);
+		}
+
+		.edcard:nth-of-type(1) {
+		  background-color: orange;
+		}
+		.edcard:nth-of-type(2) {
+		  background-color: purple;
+		}
+		.edcard:nth-of-type(3) {
+		  background-color: #65c8c8;
+		}
+		
 
 		.experience > div{
 			display: flex;
@@ -151,21 +167,21 @@
 		<h2 class="headers">Education</h2>
 		
 		<div>
-			<div class="skilldiv">
+			<div class="edcard">
 				<h3>College</h3>
 				<p><%= data.college.name %></p>
 				<p><%= data.college.address %></p>
 				<p><%= data.college.marks %></p>
 			</div>
 		
-			<div class="skilldiv">
+			<div class="edcard">
 				<h3>Twelth</h3>
 				<p><%= data.twelth.name %></p>
 				<p><%= data.twelth.address %></p>
 				<p><%= data.twelth.marks %>Year</p>
 			</div>
 		
-			<div class="skilldiv">
+			<div class="edcard">
 				<h3>Tenth</h3>
 				<p><%= data.tenth.name %></p>
 				<p><%= data.tenth.address %></p>
