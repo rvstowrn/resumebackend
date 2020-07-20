@@ -45,6 +45,9 @@
 		}
 		.skills{
 			text-align: center;
+			padding-left: 25px;
+	    padding-right: 25px;
+	    box-sizing: border-box;
 		}
 		.skillcard{
 			width: 300px;
@@ -113,6 +116,10 @@
 			padding-left: 10%;
 		}
 
+		.footer > a{
+			margin-right: 25px;
+		}
+
 		@media only screen and (max-width: 740px) {
 		  .hero {
 		    height: unset;
@@ -129,7 +136,7 @@
 
 </head>
 <body>
-	<h1 class="headers"> PORTFOLIO</h1>
+	<h1 class="headers"> <%= data.name %>  PORTFOLIO </h1>
 	<div class="hero">
 		<div>
 		<h2>About Me...</h2>
@@ -195,9 +202,22 @@
 
 	<div class="footer">
 		<h2>Contact Me On ..</h2>
-		<a href="<%- data.links.github %>">github</a><br>		
-		<a href="<%- data.links.facebook %>">facebook</a><br>		
-		<a href="<%- data.links.linkedin %>">linkedin</a><br>		
+		
+		<a href="<%- data.links.github %>">
+		  <i class="fa fa-github"></i>
+		  github
+	  </a>		
+		
+		<a href="<%- data.links.facebook %>">
+		  <i class="fa fa-facebook"></i>
+		  facebook
+	  </a>		
+		
+		<a href="<%- data.links.linkedin %>">
+		  <i class="fa fa-linkedin"></i>
+		  linkedin
+	  </a>		
+				
 	</div>
 
 </body>
