@@ -46,7 +46,7 @@
 		.skills{
 			text-align: center;
 		}
-		.skilldiv{
+		.skillcard{
 			width: 300px;
 			margin: 15px;
 			display: inline-block;
@@ -54,13 +54,13 @@
 			box-shadow: 0 0 3px rgba(0,0,0,0.7);
 		}
 
-		.skilldiv:nth-of-type(3n) {
+		.skillcard:nth-of-type(3n) {
 		  background-image: linear-gradient(to top right, rgba(0,0,255,.3),rgba(0,0,255,1),rgba(0,0,255,.3));
 		}
-		.skilldiv:nth-of-type(3n+1) {
+		.skillcard:nth-of-type(3n+1) {
 		  background-image: linear-gradient(to top right, rgba(0,255,0,.3),rgba(0,255,0,1),rgba(0,255,0,.3));
 		}
-		.skilldiv:nth-of-type(3n+2) {
+		.skillcard:nth-of-type(3n+2) {
 		  background-image: linear-gradient(to top right, rgba(255,0,0,.3),rgba(255,0,0,1),rgba(255,0,0,.3));
 		}
 
@@ -90,10 +90,12 @@
 			flex-wrap: wrap;
 		}
 
-		.expcard{
+		.expdiv{
 			width: 300px;
 			margin: 15px;
-			padding: 10px;
+			padding: 20px 10px 20px 10px;
+			background: #1a1a57;
+			width: 80%;
 			box-shadow: 0 0 3px rgba(0,0,0,0.7);
 		}
 
@@ -140,7 +142,7 @@
 		<h2 class="headers">Skills</h2>
 
 		<% Object.keys(data.skills).forEach(function(key){ %>
-		  <div class="skilldiv">
+		  <div class="skillcard">
 				<h3><%- key %></h3>
 				<p><%- data.skills[key] %></p>
 			</div>
@@ -153,7 +155,7 @@
 
 		<div>
 			<% Object.keys(data.experience).forEach(function(key){ %>
-				<div class="expcard">
+				<div class="expdiv">
 					<h3><%- key %></h3>
 					<p><%- data.experience[key] %></p>
 				</div>
