@@ -1,4 +1,6 @@
 const jwt = require("jsonwebtoken");
+const jwtSecret      = "DC46D6C4BC9E7BD52C3B0135B6C424FD0C8218E1EC54E0FD1BBB713FA5B20A7B";
+
 
 module.exports = function(token) {
  
@@ -9,7 +11,7 @@ module.exports = function(token) {
 
   // Verify token
   try {
-    const decoded = jwt.verify(token, 'DC46D6C4BC9E7BD52C3B0135B6C424FD0C8218E1EC54E0FD1BBB713FA5B20A7B');
+    const decoded = jwt.verify(token, jwtSecret);
     if (decoded.user.type !== "customer") {
       return {"msg":"Token is not valid"};
     }
