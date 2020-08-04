@@ -18,6 +18,7 @@ const db             = "mongodb+srv://rishabh:cse300531@cluster0-amnhk.mongodb.n
 app.use(bodyParser.urlencoded({limit:"50mb", extended: true }))
 app.use(bodyParser.json({limit:"50mb"}));
 app.use('/static', express.static(path.join(__dirname, 'uploads')))
+app.use('/public', express.static(path.join(__dirname, 'public')))
 app.set('view engine', 'ejs');
 
 

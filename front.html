@@ -1,47 +1,49 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>front</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-	<style type="text/css">
-		form{
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<style>
+		.mobile {
+			background-image: url("public/android_blank.PNG");
+			background-size: 100%;
 			width: 300px;
 			height: 600px;
-			display: flex;
-			flex-direction: column;
-			justify-content: space-around;
-			box-shadow: 0 0 5px black;
 			position: absolute;
 			top: 50%;
 			left: 50%;
-			transform: translate(-50%,-50%);
-			align-items: center;
+			transform: translate(-50%, -50%);
+			padding: 100px 20px 100px 20px;
+			box-sizing: border-box;
+			background-repeat: no-repeat;
 		}
-		form > *{
-			width: 250px;
+		button{
+			margin: auto !important;
 		}
 	</style>
 </head>
+
 <body>
+	<div class="mobile orange-text flow-text entry"   id="mobile"></div>
 
-	<form method="POST" enctype="multipart/form-data" action="http://localhost:3333/storeresume">
-		<input type="file" name="image">
-		<input type="text" name="about" placeholder="about">
-		<input type="text" name="skill" placeholder="skill">
-		<input type="text" name="skill" placeholder="skill">
-		<input type="text" name="experience" placeholder="experience">
-		<input type="text" name="experience" placeholder="experience">
-		<input type="text" name="college" placeholder="college">
-		<input type="text" name="twelth" placeholder="twelth">
-		<input type="text" name="tenth" placeholder="tenth">
-		<input type="text" name="links" placeholder="github">
-		<input type="text" name="links" placeholder="facebook">
-		<input type="text" name="links" placeholder="linkedin">
-		<input type="submit">
-	</form>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
+	<script>
+		const txt = 'Welcome to Potfolio Creator. Download our apk to get started on your android application.';
+		const element = document.getElementById("mobile");
+		let i = 0;
+		function typeWriter() {
+			if (i < txt.length) {
+				element.innerHTML += txt.charAt(i++);
+				setTimeout(typeWriter, 40);
+			}
+			else {
+				element.innerHTML += "<br><br><a class='btn amber' download='Portfolio_Creator.apk' href='/public/Portfolio_Creator.apk'>Download</a>"
+			}
+		}
+		typeWriter();
+	</script>
 </body>
+
 </html>
