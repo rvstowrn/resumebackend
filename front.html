@@ -10,8 +10,8 @@
 		.mobile {
 			background-image: url("public/android_blank.PNG");
 			background-size: 100%;
-			width: 300px;
-			height: 600px;
+			width: 350px;
+			height: 700px;
 			position: absolute;
 			top: 50%;
 			left: 50%;
@@ -20,14 +20,18 @@
 			box-sizing: border-box;
 			background-repeat: no-repeat;
 		}
-		button{
-			margin: auto !important;
+
+		@media only screen and (max-width: 400px) {
+			.mobile {
+				width: 225px;
+				height: 450px;
+			}
 		}
 	</style>
 </head>
 
 <body>
-	<div class="mobile orange-text flow-text entry"   id="mobile"></div>
+	<div class="mobile orange-text flow-text entry" id="mobile"></div>
 
 	<script>
 		const txt = 'Welcome to Potfolio Creator. Download our apk to get started on your android application.';
@@ -39,7 +43,8 @@
 				setTimeout(typeWriter, 40);
 			}
 			else {
-				element.innerHTML += "<br><br><a class='btn amber' download='Portfolio_Creator.apk' href='/public/Portfolio_Creator.apk'>Download</a>"
+				element.innerHTML += `<br><br><a class='btn amber flow-text' download='Portfolio_Creator.apk' 
+				href='/public/Portfolio_Creator.apk'>Download APK</a>`;
 			}
 		}
 		typeWriter();
