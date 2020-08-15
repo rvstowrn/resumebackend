@@ -48,6 +48,17 @@ connectDB();
 
 // ROUTES
 
+// Delete all data
+app.get("/reset", async (req, res) => {
+  try {
+    await User.deleteMany({});
+    await Resume.deleteMany({});
+    res.send("<h1>All Clear</h1>");
+    } catch (err) {
+    console.error(err.message);
+    res.json({msg:"server error"})
+  }
+});
 
 // Web Front End
 app.get('/', function (req, res) {
@@ -178,8 +189,7 @@ app.get('/:id', async (req, res) => {
     res.render(`template${templateid}`, { data: resume });
   }
   else
-    res.send('404 bro');
-
+    res.send('<h1>404 bro</h1>');
 });
 
 app.listen(process.env.PORT || 3333);
