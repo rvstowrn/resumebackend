@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const jwtSecret      = "DC46D6C4BC9E7BD52C3B0135B6C424FD0C8218E1EC54E0FD1BBB713FA5B20A7B";
+const jwtSecret = "DC46D6C4BC9E7BD52C3B0135B6C424FD0C8218E1EC54E0FD1BBB713FA5B20A7B";
 
 
 module.exports = function(token) {

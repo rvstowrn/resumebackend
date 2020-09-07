@@ -124,6 +124,9 @@ app.post("/loginUser", async (req, res) => {
 
 // Store Web Portfolio Data
 app.post('/storeresume', async (req, res) => {
+  if(req.body.ping){
+    return res.json({"msg":"success"});
+  }
 
   try {
 
@@ -174,6 +177,19 @@ app.post('/storeresume', async (req, res) => {
   }
 });
 
+app.get('/resumedata', async (req, res) => {
+  try{
+    let id = req.params.id;
+    let resume = await Resume.findOne({ "user": id });
+    let msg = "success";
+    Object.assign(resume, { msg });
+    res.json(resume);
+  } 
+  catch (err) {
+    console.error(err.message);
+    res.json({msg:"server error"})
+  }
+});
 
 app.get('/:id', async (req, res) => {
 

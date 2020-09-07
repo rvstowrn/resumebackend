@@ -148,11 +148,10 @@
 	<div class="hero">
 		<div>
 		<h2>About Me...</h2>
-		<h3><%= data.about %></h3>
+		<h3><%= data.about? data.about:'' %></h3>
 		</div>
 		<img src="static/<%= data.imagename %>.jpg">		
 	</div>
-
 	<div class="skills">
 		<h2 class="headers">Skills</h2>
 
@@ -227,8 +226,7 @@
 			  linkedin
 		  </a>
 	  </div>		
-				
-	</div>
-
+	
+	</div> 
 </body>
 </html>

@@ -5,46 +5,46 @@ const resumeSchema = new Schema(
   {
     imgsrc: {
       type: String,
-      required: true
+      required: false
     },
     about: {
       type: String,
-      required: true
+      required: false
     },
     skills: {
       type: Object,
-      required: true
+      required: false
     },
     experience: {
       type: Object,
-      required: true
+      required: false
     },
     college: {
       type: Object,
-      required: true
+      required: false
     },
     twelth: {
       type: Object,
-      required: true
+      required: false
     },
     tenth: {
       type: Object,
-      required: true
+      required: false
     },
     links: {
       type: Object,
-      required: true
+      required: false
     },
     user: {
       type: String,
-      required: true
+      required: false
     },
     name: {
       type: String,
-      required: true
+      required: false
     },
   },
-  { strict: true }
+  { strict: false }
 );
 
 module.exports = Resume = mongoose.model("Resume", resumeSchema);
