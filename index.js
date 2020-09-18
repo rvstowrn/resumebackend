@@ -177,19 +177,81 @@ app.post('/storeresume', async (req, res) => {
   }
 });
 
-app.get('/resumedata', async (req, res) => {
-  try{
-    let id = req.params.id;
-    let resume = await Resume.findOne({ "user": id });
-    let msg = "success";
-    Object.assign(resume, { msg });
-    res.json(resume);
-  } 
-  catch (err) {
+app.post('/editresume', async (req, res) => {
+  try {
+
+    // Check Auth
+    const token = req.body["x-auth-token"];
+    const authstatus = authHandler(token);
+    if (authstatus["msg"] !== 'success')
+      res.json({ "msg": authstatus["msg"] })
+
+    let oldResume = await Resume.findOne({ user: authstatus["decoded"]["user"]["id"] });
+    if (!oldResume) {
+      return res.json({ "msg": "Resume doesn't exists" });
+    }
+
+    let findUser = authstatus["decoded"]["user"]["id"];
+
+    let {
+      image,
+      about,
+      skills,
+      experience,
+      twelth,
+      tenth,
+      college,
+      templateid,
+      links } = req.body;
+
+    let resume = {
+        imgsrc: image,
+        about: about,
+        skills: skills,
+        experience: experience,
+
+        college: college,
+        twelth: twelth,
+        tenth: tenth,
+
+        links: links,
+        user: authstatus["decoded"]["user"]["id"],
+        name: authstatus["decoded"]["user"]["name"]
+      };
+
+    await Resume.findOneAndUpdate({user:findUser},resume);
+    res.json({ "msg": 'success', 'sitelink': `https://portfolio-v0.herokuapp.com/${resume.user}` });
+
+  } catch (err) {
     console.error(err.message);
     res.json({msg:"server error"})
   }
 });
+
+
+
+
+
+app.post('/getresume', async (req, res) => {
+  try {
+    // Check Auth
+    const token = req.body["x-auth-token"];
+    const authstatus = authHandler(token);
+    if (authstatus["msg"] !== 'success')
+      res.json({ "msg": authstatus["msg"] })
+
+    let oldResume = await Resume.findOne({ user: authstatus["decoded"]["user"]["id"] });
+    if (oldResume) {
+      let obj = oldResume.toObject();
+      delete obj.imgsrc;
+      return res.json({ obj });
+    }
+  } catch (err) {
+    console.error(err.message);
+    res.json({msg:"server error"})
+  }
+});
+
 
 app.get('/:id', async (req, res) => {
 
