@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="public/template2_style.css">
+    <title>Orange Accent</title>
+</head>
+<body>
+    <div class="intro">
+        <div class="name">
+            <%= data.name %><br> Portfolio
+        </div>
+        <div class="image-container">
+            <div class="offset-border"></div>
+            <img src="static/<%= data.imagename %>.jpg">
+
+        </div>
+    </div>
+    <div class="about">
+        <h2 class="heading">About Me</h2>
+        <%= data.about? data.about:'' %>
+    </div>
+    <div class="skills">
+        <h2 class="heading">Skills</h2>
+        <div class="skill-container">
+            <% Object.keys(data.skills).forEach(function(key){ %>
+                <div class="skill-box">
+                    <div>
+                        <img src="public/skill_img.png" class="skill_img" width="50">
+                        <h3><%- key %></h3>
+                    </div>
+                    <p><%- data.skills[key] %></p>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+    <div class="work">
+        <h2 class="heading">Work Experience</h2>
+        <div class="work-container">
+            <% Object.keys(data.experience).forEach(function(key){ %>
+				<div class="work-box">
+                    <div>
+					    <h3><%- key %></h3>
+					    <p><%- data.experience[key] %></p>
+                    </div>
+                </div>
+			<% }) %>
+        </div> 
+    </div>
+    <div class="education">
+        <h3 class="heading">Education</h3>
+        <svg width="75" height="535" viewBox="0 0 75 535" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="25" width="25" height="535" rx="12.5" fill="#FFC700"/>
+            <circle cx="37.5" cy="87.5" r="29.5" fill="white" stroke="#FD8E0D" stroke-width="16"/>
+            <circle cx="37.5" cy="254.5" r="29.5" fill="white" stroke="#FD8E0D" stroke-width="16"/>
+            <circle cx="37.5" cy="421.5" r="29.5" fill="white" stroke="#FD8E0D" stroke-width="16"/>
+        </svg>
+            
+        <div class="education-box">
+            <b>College</b><br>
+            <%= data.college.name %><br>
+            <%= data.college.address %><br>
+            <%= data.college.marks %><br>
+        </div>
+        <svg width="101" height="111" viewBox="0 0 101 111" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M101 55.5L0.499995 110.493V0.507388L101 55.5Z" fill="#FD8E0D"/>
+        </svg>
+            
+        <div class="education-box">
+            <b>Twelth</b><br>
+            <%= data.twelth.name %><br>
+            <%= data.twelth.address %><br>
+            <%= data.twelth.marks %><br>
+        </div>
+        <svg width="101" height="111" viewBox="0 0 101 111" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M101 55.5L0.499995 110.493V0.507388L101 55.5Z" fill="#FD8E0D"/>
+        </svg>
+            
+        <div class="education-box">
+            <b>Tenth</b><br>
+            <%= data.tenth.name %><br>
+            <%= data.tenth.address %><br>
+            <%= data.tenth.marks %><br>
+        </div>
+        <svg width="101" height="111" viewBox="0 0 101 111" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M101 55.5L0.499995 110.493V0.507388L101 55.5Z" fill="#FD8E0D"/>
+        </svg>   
+    </div>
+    <div class="footer">
+        <h3><a id="connect">Connect:</a></h3>
+        <h3><a href="<%- data.links.facebook %>">Facebook</a></h3>
+        <h3><a href="<%- data.links.linkedin %>">Linkedin</a></h3>
+        <h3><a href="<%- data.links.github %>">Github</a></h3>
+    </div>
+</body>
+</html>

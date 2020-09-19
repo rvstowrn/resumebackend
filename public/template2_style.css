@@ -1,0 +1,235 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100vh;
+    width: 100vw;
+    color: #FD8E0D;
+    font-family: 'Roboto', monospace;
+    overflow-x: hidden;
+}
+.intro{
+    width: 90%;
+    display: flex;
+    margin: 100px auto;
+    justify-content: space-around;
+    align-items: center;
+}
+.image-container{
+    position: relative;
+}
+.image-container > img{
+    width: 300px;
+    height: 300px;
+    border-radius: 25px;
+}
+.offset-border{
+    position: absolute;
+    top: 11px;
+    left: -12px;
+    height: 100%;
+    width: 100%;
+    border-radius: 25px;
+    border: 7px solid #FD8E0D;
+    z-index: -1;
+}
+.name{
+    font-size: 60px;
+    letter-spacing: 5px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.heading{
+    width: 100%;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #FD8E0D;
+    font-size: 40px;
+}
+.about{
+    font-size: 20px;
+    padding: 30px;
+    margin: auto;
+    width: 80%;
+    background: #E5E5E5;
+    border-radius: 75px;
+    text-align: center;
+    color: black;
+}
+.skills{
+    margin-top: 100px;
+}
+.skill-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    margin:auto;
+}
+.skill-box{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: 10px;
+    width: 29%;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: rgb(78, 71, 71);
+    height: 200px;
+    border-radius: 25px;
+    border: 3px solid grey;
+}
+.skill-box > div{
+    display: flex;
+    color: #3e15d3;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.work{
+    margin-top: 100px;
+}
+.work-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 90%;
+    margin:auto;
+    letter-spacing: 1px;
+}
+.work-box{
+    padding: 30px;
+    margin: 10px;
+    height: 275px;
+    width: 275px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 5px;
+    background-image: url("work_img_back.jpg");
+    background-size: cover;
+    box-shadow: inset 0 0 0 1000px #f58a0ee0;
+}
+.work-box h3{
+    margin-bottom: 10px;
+}
+.education{
+    position: relative;
+    margin-top: 100px;
+    text-align: center;
+}
+.education-box{
+    text-align: left;
+    padding-top: 10px;
+    padding-left: 30px;
+    font-size: 20px;
+    color: black;
+    position: absolute;
+    width: 250px;
+    max-width: 60vw;
+    height: 150px;
+    background-color: #FD8E0D;
+}
+.education-box+svg{
+    position: absolute;
+    z-index: -1;
+}
+
+
+.education-box:nth-of-type(1){
+    top: 75px;
+    left: calc(50% - 315px);
+}
+
+.education-box:nth-of-type(1)+svg{
+    top: 88px;
+    left: calc(50% - 140px);
+}
+.education-box:nth-of-type(2){
+    top: 250px;
+    left: calc(50% + 65px);
+}
+.education-box:nth-of-type(2)+svg{
+    top: 260px;
+    left: calc(50% + 40px);
+    transform: scale(-1,1);
+}
+
+.education-box:nth-of-type(3){
+    top: 425px;
+    left: calc(50% - 315px);
+}
+
+.education-box:nth-of-type(3)+svg{
+    top: 430px;
+    left: calc(50% - 140px);
+}
+
+.footer{
+    margin-top: 100px;
+    padding: 50px;
+    background: url('./footer_img.png');
+    display: flex;
+}
+.footer a{
+    margin: 20px;
+    letter-spacing: 2px;
+    font-size: 35px;
+    font-weight: 900;
+    color: rgb(182, 40, 5);
+}
+#connect{
+    font-weight: 800;
+    color: rgba(119, 31, 9, 0.829);
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 675px){
+    .intro{
+        flex-direction: column;
+    }
+    .skill-box{
+        margin: 10px auto ;
+        width: 80%;
+    }
+    .education{
+        text-align: left;
+        padding-left: 20px;
+    }
+    .education-box:nth-of-type(1){
+        top: 75px;
+        left: 120px;
+    }
+    
+    .education-box:nth-of-type(1)+svg{
+        top: 92px;
+        left: 95px;
+        transform: scale(-1,1);
+    }
+    .education-box:nth-of-type(2){
+        top: 250px;
+        left: 120px;
+    }
+    .education-box:nth-of-type(2)+svg{
+        top: 260px;
+        left: 95px;
+        transform: scale(-1,1);
+    }
+    
+    .education-box:nth-of-type(3){
+        top: 425px;
+        left: 120px;
+    }
+    
+    .education-box:nth-of-type(3)+svg{
+        top: 430px;
+        left: 95px;
+        transform: scale(-1,1);
+    }
+    .footer{
+        flex-direction: column;
+    }
+
+
+}

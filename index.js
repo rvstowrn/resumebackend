@@ -256,7 +256,7 @@ app.post('/getresume', async (req, res) => {
 app.get('/:id', async (req, res) => {
 
   let id = req.params.id;
-  let templateid = 1;
+  let templateid = 2;
 
   let resume = await Resume.findOne({ "user": id });
   if (resume) {
