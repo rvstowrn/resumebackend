@@ -253,6 +253,22 @@ app.post('/getresume', async (req, res) => {
 });
 
 
+app.post('/deleteresume', async (req, res) => {
+  try {
+    // Check Auth
+    const token = req.body["x-auth-token"];
+    const authstatus = authHandler(token);
+    if (authstatus["msg"] !== 'success')
+      res.json({ "msg": authstatus["msg"] })
+    await Resume.findOneAndDelete({ user: authstatus["decoded"]["user"]["id"] });
+    return res.json({"msg":"success"});
+  } catch (err) {
+    console.error(err.message);
+    res.json({msg:"server error"})
+  }
+});
+
+
 app.get('/:id', async (req, res) => {
 
   let id = req.params.id;
