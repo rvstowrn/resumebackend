@@ -121,14 +121,13 @@ html,body{
 }
 .education-box{
     text-align: left;
-    padding-top: 10px;
-    padding-left: 30px;
+    padding: 2px 5px;
     font-size: 20px;
     color: black;
     position: absolute;
     width: 250px;
     max-width: 60vw;
-    height: 150px;
+    min-height: 150px;
     background-color: #FD8E0D;
 }
 .education-box+svg{
