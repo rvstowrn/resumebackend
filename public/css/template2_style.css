@@ -107,7 +107,7 @@ html,body{
     align-items: center;
     color: white;
     border-radius: 5px;
-    background-image: url("work_img_back.jpg");
+    background-image: url("../assets/work_img_back.jpg");
     background-size: cover;
     box-shadow: inset 0 0 0 1000px #f58a0ee0;
 }
@@ -168,7 +168,7 @@ html,body{
 .footer{
     margin-top: 100px;
     padding: 50px;
-    background: url('./footer_img.png');
+    background: url('../assets/footer_img.png');
     display: flex;
 }
 .footer a{

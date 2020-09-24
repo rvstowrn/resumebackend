@@ -5,43 +5,43 @@ const resumeSchema = new Schema(
   {
     imgsrc: {
       type: String,
-      required: false
+      required: false,
     },
     about: {
       type: String,
-      required: false
+      required: false,
     },
     skills: {
       type: Object,
-      required: false
+      required: false,
     },
     experience: {
       type: Object,
-      required: false
+      required: false,
     },
     college: {
       type: Object,
-      required: false
+      required: false,
     },
     twelth: {
       type: Object,
-      required: false
+      required: false,
     },
     tenth: {
       type: Object,
-      required: false
+      required: false,
     },
     links: {
       type: Object,
-      required: false
+      required: false,
     },
     user: {
       type: String,
-      required: false
+      required: false,
     },
     name: {
       type: String,
-      required: false
+      required: false,
     },
   },
   { strict: false }

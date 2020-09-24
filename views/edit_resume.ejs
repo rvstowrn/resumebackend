@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/css/edit_resume_style.css">
+    <title>Create Resume</title>
+</head>
+<body>
+    <label>image</label><br>
+    <input type="file" id="image"><br>
+    <label>about</label><br>
+    <input type="text" id="about" value="<%= data.about %>"><br>
+    <div id="skill_div">
+        <label>skill name</label><br>
+        <input type="text" id="skill_name"><br>
+        <label>skill description</label><br>
+        <input type="text" id="skill_desc"><br>
+        <button onclick="addskill()">Add Skills</button><br>
+    </div>
+    
+    <div id="work_div">
+        <label>work name</label><br>
+        <input type="text" id="work_name"><br>
+        <label>work description</label><br>
+        <input type="text" id="work_desc"><br>
+        <button onclick="addwork()">Add Work</button><br>
+    </div>
+
+
+    <label>tenth name</label><br>
+    <input type="text" id="tenth_name" value="<%= data.tenth.name %>"><br>
+    <label>tenth address</label><br>
+    <input type="text" id="tenth_address" value="<%= data.tenth.address %>"><br>
+    <label>tenth marks</label><br>
+    <input type="text" id="tenth_marks" value="<%= data.tenth.marks %>"><br>
+    <label>tenth metric</label><br>
+    <input type="text" id="tenth_metric" value="<%= data.tenth.metric %>"><br>
+    <label>tenth board</label><br>
+    <input type="text" id="tenth_degree" value="<%= data.tenth.degree %>"><br>
+    <label>tenth year</label><br>
+    <input type="text" id="tenth_year" value="<%= data.tenth.year %>"><br>
+
+    <label>twelth name</label><br>
+    <input type="text" id="twelth_name" value="<%= data.twelth.name %>"><br>
+    <label>twelth address</label><br>
+    <input type="text" id="twelth_address" value="<%= data.twelth.address %>"><br>
+    <label>twelth marks</label><br>
+    <input type="text" id="twelth_marks" value="<%= data.twelth.marks %>"><br>
+    <label>twelth metric</label><br>
+    <input type="text" id="twelth_metric" value="<%= data.twelth.metric %>"><br>
+    <label>twelth board</label><br>
+    <input type="text" id="twelth_degree" value="<%= data.twelth.degree %>"><br>
+    <label>twelth year</label><br>
+    <input type="text" id="twelth_year" value="<%= data.twelth.year %>"><br>
+
+    <label>college name</label><br>
+    <input type="text" id="college_name" value="<%= data.college.name %>"><br>
+    <label>college address</label><br>
+    <input type="text" id="college_address" value="<%= data.college.address %>"><br>
+    <label>college marks</label><br>
+    <input type="text" id="college_marks" value="<%= data.college.marks %>"><br>
+    <label>college metric</label><br>
+    <input type="text" id="college_metric" value="<%= data.college.metric %>"><br>
+    <label>college degree</label><br>
+    <input type="text" id="college_degree" value="<%= data.college.degree %>"><br>
+    <label>college year</label><br>
+    <input type="text" id="college_year" value="<%= data.college.year %>"><br>
+
+
+
+
+    <label>facebook</label><br>
+    <input type="text" id="facebook" value="<%= data.links.facebook %>"><br>
+    <label>github</label><br>
+    <input type="text" id="github" value="<%= data.links.github %>"><br>
+    <label>linkedin</label><br>
+    <input type="text" id="linkedin" value="<%= data.links.linkedin %>"><br>
+    <button type="button" onclick="create_handler()">submit</button><br>    
+
+    <script src="https://cdn.jsdelivr.net/npm/js-base64@3.5.2/base64.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src='public/js/edit_resume_script.js'></script>
+    
+</body>
+</html>

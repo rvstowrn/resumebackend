@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <form method="POST" action="/registerUser">
+            <input type="text" id="name" placeholder="name" name="name"><br>
+            <input type="text" id="username" placeholder="username" name="username"><br>
+            <input type="password" id="password" placeholder="password" name="password"><br>
+            <button type="button" onclick="submitHandler()">submit</button>
+        </form>
+        <a href="./login">login</a>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src='public/js/register_script.js'></script>
+    </body>
+</html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="public/template2_style.css">
+    <link rel="stylesheet" href="../public/css/template2_style.css">
     <title>Orange Accent</title>
 </head>
 <body>
@@ -14,7 +14,7 @@
         </div>
         <div class="image-container">
             <div class="offset-border"></div>
-            <img src="static/<%= data.imagename %>.jpg">
+            <img src="../static/<%= data.imagename %>.jpg">
 
         </div>
     </div>
@@ -28,7 +28,7 @@
             <% Object.keys(data.skills).forEach(function(key){ %>
                 <div class="skill-box">
                     <div>
-                        <img src="public/skill_img.png" class="skill_img" width="50">
+                        <img src="../public/assets/skill_img.png" class="skill_img" width="50">
                         <h3><%- key %></h3>
                     </div>
                     <p><%- data.skills[key] %></p>
