@@ -56,7 +56,7 @@ router.post("/store_resume", async (req, res) => {
   }
 });
 
-router.post("/update_resume", async (req, res) => {
+router.post("/edit_resume", async (req, res) => {
   try {
     // Check Auth
     const token = req.body["x-auth-token"];

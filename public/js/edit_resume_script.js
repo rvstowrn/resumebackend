@@ -56,7 +56,7 @@ const create_handler = async () => {
   const json = {about,image,skills,experience,tenth,twelth,college,links};
   json['x-auth-token'] = str_obj(document.cookie).token; 
 
-  $.post("/api/store_resume",json, function(res){
+  $.post("/api/edit_resume",json, function(res){
     if(res.msg=='success'){
         console.log(json);
         // window.location.href='./profile';
