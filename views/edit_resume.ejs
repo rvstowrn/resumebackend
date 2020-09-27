@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="public/css/edit_resume_style.css">
+    <link rel="icon" type="image/png" href="public/assets/logo_with_bg.png" />
     <title>Create Resume</title>
 </head>
 <body>
+    <div>
+        Existing Image<br>
+        <img width="150px" height="150px" src="data:image/png;base64,<%= data.imgsrc %>">
+    </div>
     <label>image</label><br>
     <input type="file" id="image"><br>
     <label>about</label><br>

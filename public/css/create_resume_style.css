@@ -1,3 +1,15 @@
 body{
     text-align: center;
+    display: flex;
+}
+.green-board{
+    width: 200px;
+    background-color: #03DAC5;
+}
+h4{
+    padding-left: 15px;
+    text-align: left;
+}
+.form-container{
+    padding: 20px ;
 }

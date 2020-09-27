@@ -12,11 +12,24 @@ const ext = (s) => {
 
 const addskill = () => {
   skills[ext("skill_name")] = ext("skill_desc");
-  const skill_div = document.getElementById("skill_div");
-  skill_div.innerHTML += `<p><b>${ext("skill_name")} </b></p> <p>${ext(
-    "skill_desc"
-  )}</p>`;
+  const skill_div = document.getElementById("skill_collection");
+  
+  skill_div.innerHTML += `
+    <li class="collection-item" id=${ext("skill_name")}>
+      <div>${ext("skill_name")}<br>${ext("skill_desc")}
+        <a onclick='removeskill(${ext("skill_name")})' class="secondary-content">
+          <i class="fa fa-trash"></i>
+        </a>
+      </div>
+    </li>`;
 };
+
+const removeskill = (skill_name) => {
+  console.log(skill_name);
+  delete skills[skill_name];
+  $("#"+skill_name).remove();
+};
+
 
 const addwork = () => {
   experience[ext("work_name")] = ext("work_desc");

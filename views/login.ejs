@@ -4,15 +4,21 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="public/css/login_style.css">
+        <link rel="icon" type="image/png" href="public/assets/logo_with_bg.png" />
         <title>Document</title>
     </head>
     <body>
-        <form>
-            <input type="text" id="username" placeholder="username" name="username"><br>
-            <input type="password" id="password" placeholder="password" name="pass"><br>
-            <button type="button" onclick="submitHandler()">submit</button>
-        </form>
-        <a href="./register">register</a>
+        <div class="main-container">
+            <div class="side-slide">
+                <img src="public/assets/logo.png">
+            </div>
+            <form>
+                <input type="text" id="username" placeholder="Username" name="username"><br>
+                <input type="password" id="password" placeholder="Password" name="pass"><br>
+                <button type="button" onclick="submitHandler()">Submit</button><br>
+            </form>
+            <a href="./register">New here? Register first .. </a>
+        </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src='public/js/login_script.js'></script>
     </body>

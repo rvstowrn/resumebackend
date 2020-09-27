@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/css/profile_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="icon" type="image/png" href="public/assets/logo_with_bg.png" />
     <title>Profile</title>
 </head>
 <body>
-    <%= data.id %><br>
-    <%= data.name %><br>
-    <%= data.type %><br>
-    <%= data.sitelink %><br>
-    <a href="./create_resume">Create Resume</a><br>
-    <a href="./edit_resume">Edit Resume</a><br>
-    <button>logout</button><br>
-
-
+    <h3>Welcome,<br> <%= data.name %></h3>
+    <p class="flow-text">Username : <%= data.id %><br>Site : <%= data.sitelink %></p>
+    <a class="btn" href="./create_resume">Create New Resume</a><br>
+    <a class="btn" href="./edit_resume">Edit Existing Resume</a><br>
+    <button class="btn" onclick="logoutHandler()">logout</button>
+    <script src="public/js/profile_script.js"></script>
 </body>
 </html>

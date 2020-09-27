@@ -38,7 +38,6 @@ router.post("/login_user", async (req, res) => {
     if (!passwordCheck) {
       return res.json({ msg: "Wrong Password" });
     }
-    
     const payload = {
       user: {
         id: username,
