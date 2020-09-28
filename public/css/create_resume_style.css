@@ -13,3 +13,15 @@ h4{
 .form-container{
     padding: 20px ;
 }
+.file_input{
+    float: left;
+    margin-left:16px ;
+}
+.collection-item > div{
+    text-align: left;
+    font-size: 20px;
+}
+.collection-item{
+    display: flex;
+    justify-content: space-between;
+}

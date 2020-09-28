@@ -1,0 +1,27 @@
+body{
+    text-align: center;
+    display: flex;
+}
+.green-board{
+    width: 200px;
+    background-color: #03DAC5;
+}
+h4{
+    padding-left: 15px;
+    text-align: left;
+}
+.form-container{
+    padding: 20px ;
+}
+.file_input{
+    float: left;
+    margin-left:16px ;
+}
+.collection-item > div{
+    text-align: left;
+    font-size: 20px;
+}
+.collection-item{
+    display: flex;
+    justify-content: space-between;
+}

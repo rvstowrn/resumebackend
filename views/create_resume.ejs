@@ -19,11 +19,14 @@
   <body>
     <div class="green-board"></div>
     <div class="form-container">
-        <label>image</label>
-        <input type="file" id="image">
+      <h2>Create Portfolio</h2>  
+      
+      <h4>Profile Image</h4>
+      <input type="file" id="image" class="file_input">
+      <br><br>
         
         
-        <p class="flow-text left">About Me</p>
+        <h4>About Me</h4>
         <textarea id="about" style="height: 6rem;"></textarea>
 
         <h4>Skills</h4>
@@ -37,7 +40,8 @@
                 <input type="text" id="skill_desc">
             </div>
             <div class="col s12">
-                <button onclick="addskill()">Add Skills</button>
+              <button class="btn green left" onclick="addskill()">Add Skills</button>
+              <br><br>
             </div>
             <ul class="collection with-header" id="skill_collection">
                 <li class="collection-header"><h4>All Skills</h4></li>
@@ -56,8 +60,12 @@
                 <input type="text" id="work_desc">
             </div>
             <div class="col s12">
-                <button onclick="addwork()">Add Skills</button>
+              <button class="btn green left" onclick="addwork()">Add Work Experience</button>
+              <br><br>
             </div>
+            <ul class="collection with-header" id="work_collection">
+              <li class="collection-header"><h4>All Work Experience</h4></li>
+            </ul>
         </div>
 
       <div class="row">
@@ -172,7 +180,9 @@
         </div>
       </div>
       <br><br>
-      <button class="btn left" type="button" onclick="create_handler()">Create Portfolio</button>
+      <button class="btn left btn-large" type="button" onclick="create_handler()">
+        <h6>Create Portfolio</h6>
+      </button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/js-base64@3.5.2/base64.min.js"></script>

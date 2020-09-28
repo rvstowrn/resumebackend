@@ -11,30 +11,40 @@ const ext = (s) => {
 };
 
 const addskill = () => {
-  skills[ext("skill_name")] = ext("skill_desc");
+  const skill_name = ext("skill_name");
+  const skill_desc = ext("skill_desc");
+  skills[skill_name] = skill_desc;
   const skill_div = document.getElementById("skill_collection");
   
   skill_div.innerHTML += `
-    <li class="collection-item" id=${ext("skill_name")}>
-      <div>${ext("skill_name")}<br>${ext("skill_desc")}
-        <a onclick='removeskill(${ext("skill_name")})' class="secondary-content">
-          <i class="fa fa-trash"></i>
-        </a>
-      </div>
+    <li class="collection-item" id=${skill_name}>
+      <div><b>${skill_name}</b><br>${skill_desc}</div>
+      <div><i onclick='removeskill(${skill_name})'class="fa fa-trash"></i></div>
     </li>`;
 };
 
-const removeskill = (skill_name) => {
-  console.log(skill_name);
-  delete skills[skill_name];
-  $("#"+skill_name).remove();
+const removeskill = (target) => {
+  target.parentNode.removeChild(target);
+  delete skills[target.id];
 };
 
 
 const addwork = () => {
-  experience[ext("work_name")] = ext("work_desc");
-  const work_div = document.getElementById("work_div");
-  work_div.innerHTML += `<p><b>${ext("work_name")} </b></p> <p>${ext("work_desc")}</p>`;
+  const work_name = ext("work_name");
+  const work_desc = ext("work_desc");
+  experience[work_name] = work_desc;
+  const work_div = document.getElementById("work_collection");
+  
+  work_div.innerHTML += `
+    <li class="collection-item" id=${work_name}>
+      <div><b>${work_name}</b><br>${work_desc}</div>
+      <div><i onclick='removework(${work_name})'class="fa fa-trash"></i></div>
+    </li>`;
+};
+
+const removework = (target) => {
+  target.parentNode.removeChild(target);
+  delete experience[target.id];
 };
 
 const create_handler = async () => {
@@ -65,14 +75,13 @@ const create_handler = async () => {
   college['year']=ext("college_year");
 
   const about = ext('about');
-  await Main();
+  await removesuffix();
   const json = {about,image,skills,experience,tenth,twelth,college,links};
   json['x-auth-token'] = str_obj(document.cookie).token; 
 
   $.post("/api/store_resume",json, function(res){
     if(res.msg=='success'){
-        console.log(json);
-        // window.location.href='./profile';
+        window.location.href='./profile';
     }
     else{
         console.log(res);
@@ -98,7 +107,7 @@ function getBase64(file) {
   });
 }
 
-async function Main() {
+async function removesuffix() {
  const file = document.querySelector('#image').files[0];
  image = await getBase64(file);
  image = image.replace("data:image/png;base64,", "");

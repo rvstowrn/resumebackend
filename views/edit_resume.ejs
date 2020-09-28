@@ -1,91 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="public/css/edit_resume_style.css">
-    <link rel="icon" type="image/png" href="public/assets/logo_with_bg.png" />
-    <title>Create Resume</title>
-</head>
-<body>
-    <div>
-        Existing Image<br>
-        <img width="150px" height="150px" src="data:image/png;base64,<%= data.imgsrc %>">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="public/css/edit_resume_style.css"/>
+    <link rel="icon" type="image/png" href="public/assets/logo_with_bg.png"/>
+    <title>Edit Resume</title>
+  </head>
+  <body>
+    <div class="green-board"></div>
+    <div class="form-container">
+      <h2>Create Portfolio</h2>  
+      
+      <h4>Profile Image</h4>
+      <input type="file" id="image" class="file_input">
+      <br><br>
+        
+        
+        <h4>About Me</h4>
+        <textarea id="about" style="height: 6rem;"><%= data.about %></textarea>
+
+        <h4>Skills</h4>
+        <div id="skill_div" class="row">
+            <div class="input-field col l5 s12">
+                <label>skill name</label>
+                <input type="text" id="skill_name">
+            </div>
+            <div class="input-field col l5 s12 offset-l1">
+                <label>skill description</label>
+                <input type="text" id="skill_desc">
+            </div>
+            <div class="col s12">
+              <button class="btn green left" onclick="addskill()">Add Skills</button>
+              <br><br>
+            </div>
+            <ul class="collection with-header" id="skill_collection">
+                <li class="collection-header" id="skill-header"><h4>All Skills</h4></li>
+                <% Object.keys(data.skills).forEach(function(key){ %>
+                  <li class="collection-item" id='<%- key %>' data-value="<%- data.skills[key] %>">
+                    <div><b><%- key %></b><br><%- data.skills[key] %></div>
+                    <div><i onclick='removeskill("<%- key %>")' class="fa fa-trash"></i></div>
+                  </li>
+                <% }) %>  
+            </ul>
+        </div>
+
+
+        <h4>Work Experience</h4>
+        <div id="work_div"  class="row">
+            <div class="input-field col l5 s12">
+                <label>work name</label>
+                <input type="text" id="work_name">
+            </div>
+            <div class="input-field col l5 s12 offset-l1">
+                <label>work description</label>
+                <input type="text" id="work_desc">
+            </div>
+            <div class="col s12">
+              <button class="btn green left" onclick="addwork()">Add Work Experience</button>
+              <br><br>
+            </div>
+            <ul class="collection with-header" id="work_collection">
+              <li class="collection-header" id="work-header"><h4>All Work Experience</h4></li>
+              <% Object.keys(data.experience).forEach(function(key){ %>
+                <li class="collection-item" id='<%- key %>' data-value="<%- data.experience[key] %>">
+                  <div><b><%- key %></b><br><%- data.experience[key] %></div>
+                  <div><i onclick='removework("<%- key %>")'class="fa fa-trash"></i></div>
+                </li>
+              <% }) %>
+            </ul>
+        </div>
+
+      <div class="row">
+        <h3>Education</h3>
+
+        <h4>Tenth</h4>
+        <div class="input-field col l4 s12">
+          <label>tenth name</label>
+          <input type="text" id="tenth_name" value="<%= data.tenth.name %>" />
+        </div>
+
+        <div class="input-field col l4 s12">
+          <label>tenth address</label>
+          <input type="text" id="tenth_address" value="<%= data.tenth.address %>"/>
+        </div>
+
+        <div class="input-field col l4 s12">
+          <label>tenth marks</label>
+          <input type="text" id="tenth_marks" value="<%= data.tenth.marks %>" />
+        </div>
+        <div class="input-field col l4 s12">
+          <label>tenth metric</label>
+          <input type="text" id="tenth_metric" value="<%= data.tenth.metric %>" />
+        </div>
+
+        <div class="input-field col l4 s12">
+          <label>tenth board</label>
+          <input type="text" id="tenth_degree" value="<%= data.tenth.degree %>" />
+        </div>
+
+        <div class="input-field col l4 s12">
+          <label>tenth year</label>
+          <input type="text" id="tenth_year" value="<%= data.tenth.year %>" />
+        </div>
+
+        <h4>Twelth</h4>
+        <div class="input-field col l4 s12">
+          <label>twelth name</label>
+          <input type="text" id="twelth_name" value="<%= data.twelth.name %>" />
+        </div>
+
+        <div class="input-field col l4 s12">
+          <label>twelth address</label>
+          <input type="text" id="twelth_address" value="<%= data.twelth.address %>"/>
+        </div>
+
+        <div class="input-field col l4 s12">
+          <label>twelth marks</label>
+          <input type="text" id="twelth_marks" value="<%= data.twelth.marks %>" />
+        </div>
+
+        <div class="input-field col l4 s12">
+          <label>twelth metric</label>
+          <input type="text" id="twelth_metric" value="<%= data.twelth.metric %>" />
+        </div>
+
+        <div class="input-field col l4 s12">
+          <label>twelth board</label>
+          <input type="text" id="twelth_degree" value="<%= data.twelth.degree %>"/>
+        </div>
+
+        <div class="input-field col l4 s12">
+          <label>twelth year</label>
+          <input type="text" id="twelth_year" value="<%= data.twelth.year %>"/>
+        </div>
+
+        <h4>College</h4>
+        <div class="input-field col l4 s12">
+          <label>college name</label>
+          <input type="text" id="college_name" value="<%= data.college.name %>" />
+        </div>
+
+        <div class="input-field col l4 s12">
+          <label>college address</label>
+          <input type="text" id="college_address" value="<%= data.college.address %>"/>
+        </div>
+
+        <div class="input-field col l4 s12">
+          <label>college marks</label>
+          <input type="text" id="college_marks" value="<%= data.college.marks %>" />
+        </div>
+
+        <div class="input-field col l4 s12">
+          <label>college metric</label>
+          <input type="text" id="college_metric" value="<%= data.college.metric %>"/>
+        </div>
+
+        <div class="input-field col l4 s12">
+          <label>college degree</label>
+          <input type="text" id="college_degree"value="<%= data.college.degree %>" />
+        </div>
+
+        <div class="input-field col l4 s12">
+          <label>college year</label>
+          <input type="text" id="college_year" value="<%= data.college.year %>" />
+        </div>
+      </div>
+
+      <h4>Links</h4>
+      <div class="row">
+        <div class="input-field col l4 s12">
+            <label>facebook</label>
+            <input type="text" id="facebook" value="<%= data.links.facebook %>" />
+        </div>
+        <div class="input-field col l4 s12">
+            <label>github</label>
+            <input type="text" id="github" value="<%= data.links.github %>" />
+        </div>
+        <div class="input-field col l4 s12">
+            <label>linkedin</label>
+            <input type="text" id="linkedin" value="<%= data.links.linkedin %>" />
+        </div>
+      </div>
+      <br><br>
+      <button class="btn left btn-large" type="button" onclick="create_handler()">
+        <h6>Edit Portfolio</h6>
+      </button>
     </div>
-    <label>image</label><br>
-    <input type="file" id="image"><br>
-    <label>about</label><br>
-    <input type="text" id="about" value="<%= data.about %>"><br>
-    <div id="skill_div">
-        <label>skill name</label><br>
-        <input type="text" id="skill_name"><br>
-        <label>skill description</label><br>
-        <input type="text" id="skill_desc"><br>
-        <button onclick="addskill()">Add Skills</button><br>
-    </div>
-    
-    <div id="work_div">
-        <label>work name</label><br>
-        <input type="text" id="work_name"><br>
-        <label>work description</label><br>
-        <input type="text" id="work_desc"><br>
-        <button onclick="addwork()">Add Work</button><br>
-    </div>
-
-
-    <label>tenth name</label><br>
-    <input type="text" id="tenth_name" value="<%= data.tenth.name %>"><br>
-    <label>tenth address</label><br>
-    <input type="text" id="tenth_address" value="<%= data.tenth.address %>"><br>
-    <label>tenth marks</label><br>
-    <input type="text" id="tenth_marks" value="<%= data.tenth.marks %>"><br>
-    <label>tenth metric</label><br>
-    <input type="text" id="tenth_metric" value="<%= data.tenth.metric %>"><br>
-    <label>tenth board</label><br>
-    <input type="text" id="tenth_degree" value="<%= data.tenth.degree %>"><br>
-    <label>tenth year</label><br>
-    <input type="text" id="tenth_year" value="<%= data.tenth.year %>"><br>
-
-    <label>twelth name</label><br>
-    <input type="text" id="twelth_name" value="<%= data.twelth.name %>"><br>
-    <label>twelth address</label><br>
-    <input type="text" id="twelth_address" value="<%= data.twelth.address %>"><br>
-    <label>twelth marks</label><br>
-    <input type="text" id="twelth_marks" value="<%= data.twelth.marks %>"><br>
-    <label>twelth metric</label><br>
-    <input type="text" id="twelth_metric" value="<%= data.twelth.metric %>"><br>
-    <label>twelth board</label><br>
-    <input type="text" id="twelth_degree" value="<%= data.twelth.degree %>"><br>
-    <label>twelth year</label><br>
-    <input type="text" id="twelth_year" value="<%= data.twelth.year %>"><br>
-
-    <label>college name</label><br>
-    <input type="text" id="college_name" value="<%= data.college.name %>"><br>
-    <label>college address</label><br>
-    <input type="text" id="college_address" value="<%= data.college.address %>"><br>
-    <label>college marks</label><br>
-    <input type="text" id="college_marks" value="<%= data.college.marks %>"><br>
-    <label>college metric</label><br>
-    <input type="text" id="college_metric" value="<%= data.college.metric %>"><br>
-    <label>college degree</label><br>
-    <input type="text" id="college_degree" value="<%= data.college.degree %>"><br>
-    <label>college year</label><br>
-    <input type="text" id="college_year" value="<%= data.college.year %>"><br>
-
-
-
-
-    <label>facebook</label><br>
-    <input type="text" id="facebook" value="<%= data.links.facebook %>"><br>
-    <label>github</label><br>
-    <input type="text" id="github" value="<%= data.links.github %>"><br>
-    <label>linkedin</label><br>
-    <input type="text" id="linkedin" value="<%= data.links.linkedin %>"><br>
-    <button type="button" onclick="create_handler()">submit</button><br>    
 
     <script src="https://cdn.jsdelivr.net/npm/js-base64@3.5.2/base64.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src='public/js/edit_resume_script.js'></script>
-    
-</body>
+    <script src="public/js/edit_resume_script.js"></script>
+  </body>
 </html>
