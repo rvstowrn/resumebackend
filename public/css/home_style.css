@@ -56,22 +56,34 @@ section > div
 {
   0%
   {
-    background-image: url('../assets/weblogin.png');
+    background-image: url('../assets/webprofile.png');
   }
-  100%
+  16%
+  {
+    background-image: url('../assets/webprofile.png');
+  }
+  32%
   {
     background-image: url('../assets/weblogin.png');
   }
-  /*50%
+  48%
+  {
+    background-image: url('../assets/weblogin.png');
+  }
+  64%
+  {
+    background-image: url('../assets/webregister.png');
+  }
+  80%
   {
     background-image: url('../assets/webregister.png');
   }
   100%
   {
-    background-image: url('../assets/webregister.png');
-  }*/
-
+    background-image: url('../assets/webprofile.png');
+  }
 }
+
 .mob
 {
   background-image: url('../assets/mob.png');
