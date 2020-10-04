@@ -1,29 +1,179 @@
-* {
+* 
+{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-.mobile {
-    background-image: url("../assets/android_blank.png");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 700px;
-    width: 350px;
-    padding: 100px 30px 100px 30px;
-    font-size: 30px;
+body{
+  background-image: linear-gradient(to top left,#00695C,#80CBC4,#00796B);
 }
-.web-anchor{
-    padding: 10px;
-    text-align: right;
+.logo{
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100px;
+  width: 350px;
 }
-@media only screen and (max-width: 400px) {
-    .mobile {
-        font-size: 15px;
-        width: 225px;
-        height: 450px;
+section 
+{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+section > div
+{
+  width: 60vw;
+  height: 100vh;
+  display:flex;
+  align-items: center;
+  justify-content: center; 
+  flex-direction: column;
+}
+.web
+{
+  background-image: url('../assets/web.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 250px;
+  width: 410px;
+  position: relative;
+}
+
+.web > div
+{
+  height: 188px;
+  width: 306px;
+  position: absolute;
+  top: 23px;
+  left: 55px;
+  animation: webslider 10s linear infinite;
+  background-size: cover;
+  background-repeat: no-repeat; 
+}
+
+@keyframes webslider
+{
+  0%
+  {
+    background-image: url('../assets/weblogin.png');
+  }
+  100%
+  {
+    background-image: url('../assets/weblogin.png');
+  }
+  /*50%
+  {
+    background-image: url('../assets/webregister.png');
+  }
+  100%
+  {
+    background-image: url('../assets/webregister.png');
+  }*/
+
+}
+.mob
+{
+  background-image: url('../assets/mob.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 360px;
+  width: 280px;
+  position: relative;
+}
+.mob > div
+{
+  height: 284px;
+  width: 160px;
+  position: absolute;
+  top: 35px;
+  left: 67px;
+  animation: mobslider 12s infinite linear;
+  background-size: cover;
+  background-repeat: no-repeat; 
+}
+
+@keyframes mobslider 
+{
+  0%
+  {
+    background-image: url('../assets/home.jpg');
+  }
+  16%
+  {
+    background-image: url('../assets/home.jpg');
+  }
+  32%
+  {
+    background-image: url('../assets/login.jpg');
+  }
+  48%
+  {
+    background-image: url('../assets/login.jpg');
+  }
+  64%
+  {
+    background-image: url('../assets/register.jpg');
+  }
+  80%
+  {
+    background-image: url('../assets/register.jpg');
+  }
+  100%
+  {
+    background-image: url('../assets/home.jpg');
+  }
+}
+
+.link
+{
+	color: black;
+	text-decoration: none;
+}
+.link:hover
+{
+	color: white;
+}
+.apk_btn
+{
+  color: white;
+  text-decoration: none;
+}
+.btn 
+{
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 17px;
+  margin-top: 17px;
+}
+.btn:hover 
+{
+  background-color: black;
+}
+@media only screen and (max-width: 875px) {
+    section {
+        align-items: center;
+        flex-direction: column-reverse;
+        margin-top: 150px;
+    }
+    .web {
+        height: 200px;
+        width: 325px;
+        right: 13px;
+        position: relative;
+    }
+    .web > div {
+        top: 17px;
+        left: 45px;
+        height: 142px;
+        width: 242px;
+    }
+    .link {
+        font-size: 18px;
     }
 }
