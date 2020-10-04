@@ -9,7 +9,7 @@ setTimeout(() => {
         }
         else {
             element.innerHTML += `<br><br><a class='btn amber' download='Portfolio_Creator.apk' 
-        href='/public/apk/Portfolio_Creator.apk'> <i class="fa fa-download"></i> Download </a>`;
+        href='public/apk/Portfolio_Creator.apk'> <i class="fa fa-download"></i> Download </a>`;
         }
     }
     typeWriter();
