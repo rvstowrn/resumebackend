@@ -9,3 +9,6 @@ html,body{
     align-items: center;
     flex-direction: column;
 }
+.user_link{
+    text-align: center;
+}

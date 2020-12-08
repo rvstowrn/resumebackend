@@ -26,7 +26,12 @@ router.get("/profile", function (req, res) {
   const token = req.cookies.token;
   const authstatus = auth_handler(token);
   if (authstatus["msg"] !== "success") res.json({ msg: authstatus["msg"] });
-  res.render(`profile`,{data:authstatus["decoded"]["user"]});
+  const user = authstatus["decoded"]["user"]["id"];
+  Resume.findOne({ user }).then((resume)=>{
+    res.render(`profile`,{data:authstatus["decoded"]["user"],link:`https://portfolio-v0.herokuapp.com/p/${resume.user}`});
+  }).catch((e)=>{
+    res.render(`profile`,{data:authstatus["decoded"]["user"],link:"null"});
+  })
 });
 
 // Create Resume
