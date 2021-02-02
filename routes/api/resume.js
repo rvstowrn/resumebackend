@@ -102,7 +102,7 @@ router.post("/edit_resume", async (req, res) => {
     await Resume.findOneAndUpdate({ user: findUser }, resume);
     res.json({
       msg: "success",
-      sitelink: `https://portfolio-v0.herokuapp.com/p/${resume.user}`,
+      sitelink: `https://rvstowrn-resumebackend.zeet.app/p/${resume.user}`,
     });
   } catch (err) {
     console.error(err.message);
