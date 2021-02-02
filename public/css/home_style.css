@@ -220,6 +220,7 @@ section > div{
 }
 section > div > div{
   width: 40vw;
+  min-width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -242,4 +243,26 @@ footer{
 footer > a{
   text-decoration: none;
   color: #55AE3A;
+}
+@media only screen and (max-width: 875px) {
+  .logo{
+    width: 300px;
+    margin-bottom: 5px;
+  }
+  section > div {
+      flex-direction: column;
+      align-items: center;
+  }
+  section > div > div {
+    font-size: 18px;
+  }
+  section > div > img {
+    width: 320px;
+    height: 500px;
+  }
+  .app{
+    flex-direction: column-reverse;
+    margin-bottom: 15px;
+  }
+  
 }

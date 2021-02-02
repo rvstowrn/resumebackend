@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node index",
-    "dev": "nodemon index"
+    "dev": "nodemon index",
+    "push": "git add * & git commit -am. & git push origin master"
+
   },
   "author": "rishabh verma <rvstowrn@gmail.com>",
   "license": "ISC",
