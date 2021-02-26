@@ -40,6 +40,8 @@ app.use("/api", require("./routes/api/user"));
 app.use("/api", require("./routes/api/resume"));
 app.use("/", require("./routes/renders/web"));
 
+var ledStatus = "OFF";
+
 app.get("/toggleLedStatus",(req,res)=>{
   if(ledStatus === "OFF")
       ledStatus = "ON";
