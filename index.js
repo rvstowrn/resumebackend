@@ -40,6 +40,19 @@ app.use("/api", require("./routes/api/user"));
 app.use("/api", require("./routes/api/resume"));
 app.use("/", require("./routes/renders/web"));
 
+app.get("/toggleLedStatus",(req,res)=>{
+  if(ledStatus === "OFF")
+      ledStatus = "ON";
+  else
+      ledStatus = "OFF";
+  res.send("toggled");
+});
+
+app.get("/led",(req,res) => {
+  res.send(ledStatus);
+});
+
+
 const PORT = process.env.PORT || 3333;
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
